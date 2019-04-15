@@ -13,8 +13,6 @@ let rivers (input: string) =
     match  List.exists tester result    || arrlen <= 2 || input.Contains ',' || input.Contains '!' || input.StartsWith ' ' || input.EndsWith ' '  with // if theres only 1 word or no words or contains punctaution
     |true -> None
     |false ->  Some input
-
- 
             
 
 
