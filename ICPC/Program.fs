@@ -226,7 +226,26 @@ let tester strin x =
 let succeeded strin chr =
     match (tester strin chr) with
     |false -> false
-    |_ -> true*)
+    |_ -> true
+let preceded (strin:string) (chr) =
+    let strngLst = Array.toList (strin.Split())
+    let rec makelst (lst:string list) chr nlst =
+        match List.length lst > 1 with
+        |false -> nlst
+        | _ -> match  succeeded (List.head lst) chr with
+                | false -> makelst (List.tail lst) chr nlst 
+                | _-> match List.rev(List.ofSeq (string (List.head lst))) with
+                        |head -> List.tail (List.rev(List.ofSeq (string (List.tail lst))))
+                        |_-> makelst (List.tail lst) chr (List.rev (List.head (List.tail lst)::nlst))
+    makelst strngLst chr []
+preceded "please, sit spot. sit spot, sit. spot here now here." ","
+//tekes in a string, splits it at spaces and generates a list,
+//then traverses through the list checking which strings there
+//are succeeded by a comma and which are preceded by a comma
+//we then put these strings in 2 different lists
+let processor (strin:string) =
+    let strngLst = Array.toList (strin.Split())
+    let succeeded = List.distinct (List.filter (tester str ",") strngLst)*)
 
 let rivers (input: string) =
     let result = Array.toList (input.Split ' ')
