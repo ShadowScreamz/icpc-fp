@@ -206,7 +206,27 @@ let commaSprinkler input =
                                  |false -> Some newstring
 
 
-let commaSprinkler input = failwith "Not implemented"
+(*// This function takes in two inputs(strings), 1) a string, 2) a char e.g '.' or ',' and returns true 
+//if the strinhg contains the char and false otherwise.
+let tester strin x =
+    let rec traverse lst (x:string) =
+        match (x.Length = 2) with
+        |false ->match List.length lst > 0 with
+                 |false -> false
+                 |_ -> match string (List.head lst) = x with
+                        |false -> traverse (List.tail lst) x
+                        |_ -> true
+        |_-> match (1 < List.length lst) with
+                |false -> false
+                |_-> match (string (List.head lst)+string (List.head (List.tail lst))) = x with
+                        |false -> traverse (List.tail lst) x
+                        | _ -> true 
+    traverse (List.ofSeq strin) x
+//this function takes in a string and checks if its succeeded by comma, period etc
+let succeeded strin chr =
+    match (tester strin chr) with
+    |false -> false
+    |_ -> true*)
 
 let rivers (input: string) =
     let result = Array.toList (input.Split ' ')

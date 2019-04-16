@@ -48,7 +48,7 @@ let ``Comma sprinkler, error case 5`` () =
         commaSprinkler "one, two. one tree, " |> should equal None
         commaSprinkler "one, two. one tree " |> should equal None
 
-(*[<Test>]
+[<Test>]
 let ``Rivers, input 1`` () =
     rivers "The Yangtze is the third longest river in Asia and the longest in the world to flow entirely in one country"
     |> should equal (Some (15, 5))
@@ -83,4 +83,4 @@ let ``Rivers, error case 4`` () =
 
 [<Test>]
 let ``Rivers, error case 5`` () =
-    rivers "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabc test" |> should equal None *)
+    rivers "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabc test" |> should equal None 
